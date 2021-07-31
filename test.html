@@ -12,7 +12,7 @@
 
     <script>
         function getResolution() {
-            alert("Your screen resolution is: " + window.screen.width * window.devicePixelRatio + "x" + window.screen.height * window.devicePixelRatio);
+            alert("Your screen resolution is: " + math.floor(window.screen.width * window.devicePixelRatio) + "x" + math.floor(window.screen.height * window.devicePixelRatio));
         }
         getResolution();
     </script>
