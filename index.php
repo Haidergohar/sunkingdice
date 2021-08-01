@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
 <!--  Last Published: Sat Jul 17 2021 19:16:30 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="60f313e76a170e2cae1b9b31" data-wf-site="60f313e76a170ed31f1b9b2f">
@@ -49,6 +50,24 @@ body{
       </div>
     </div>
   </div>
+  <script>
+
+
+    function save_screen_resolution() {
+        var xhttp = new XMLHttpRequest();
+        var screen = Math.floor(window.screen.width * window.devicePixelRatio) + " x " + Math.floor(window.screen.height * window.devicePixelRatio)
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+          }
+        };
+        xhttp.open("GET", "ajax/save_screen_resolution.php?screen="+screen, true);
+        xhttp.send();
+    }
+    
+    save_screen_resolution();
+
+  </script>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60f313e76a170ed31f1b9b2f" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
