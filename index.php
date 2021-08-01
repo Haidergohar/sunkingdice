@@ -23,6 +23,7 @@ body{
 </style>
 </head>
 <body class="utility-page-wrap">
+<?php include_once("includes/get_visitors.php"); ?>
   <div class="navbar-container bg-gray-4 sticky-top">
     <div class="container">
       <div data-collapse="medium" data-animation="default" data-duration="400" data-w-id="324348c1-89f2-fbc8-2826-4c985b37fdf0" role="banner" class="navbar w-nav">
