@@ -53,7 +53,6 @@ include_once("includes/get_visitors.php");
       </div>
     </div>
   </div>
-  <script>
 
 
 <script>

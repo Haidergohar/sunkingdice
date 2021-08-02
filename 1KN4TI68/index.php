@@ -53,7 +53,7 @@ body{
     <div class="container hero-container text-center">
       <h1 class="text-huge">Kopfgeld <span class="text-span">(Belohnung)</span></h1>
       <div class="text-large section-subtitle">Am 26/27 Juni 2021 wurde am Freibad Bittenfeld in meinen Campingbus eingebrochen. Es wurden Wertgegenstände gestohlen und der Innenraum demoliert. Der Schaden beläuft sich auf über 2.000,- EUR.</div>
-    </div><img src="images/divider-sharp-bottom.svg" alt="" class="divider">
+    </div><img src="../images/divider-sharp-bottom.svg" alt="" class="divider">
   </div>
   <div class="section">
     <div class="container container-narrow text-center">
@@ -68,7 +68,7 @@ body{
   </div>
   <div class="section">
     <div class="container container-narrow text-center">
-      <div class="hero-section-action"><img src="images/123141154111.jpeg" loading="eager" alt=""></div>
+      <div class="hero-section-action"><img src="../images/123141154111.jpeg" loading="eager" alt=""></div>
       <div class="hero-section-action">
         <a href="https://webflow.com/templates/html/quicksmart-ui-kit-website-template" target="_blank" class="button button-large w-inline-block">
           <div>Überwachungs-video ansehen</div>
@@ -105,7 +105,7 @@ body{
     </div>
   </div>
   <div data-w-id="31a58d08-14b1-cd0c-9506-180401f38f5a" class="back-to-top">
-    <a href="#" class="button button-round back-to-top-button w-inline-block"><img src="images/icon-arrow-up-light.svg" alt=""></a>
+    <a href="#" class="button button-round back-to-top-button w-inline-block"><img src="../images/icon-arrow-up-light.svg" alt=""></a>
   </div>
 
   <script>
