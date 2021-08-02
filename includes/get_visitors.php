@@ -1,8 +1,6 @@
 <?php
 include_once("config.php");
 
-echo "Running Perfect!!!";
-
 $visitor_ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = time();
 
@@ -61,9 +59,8 @@ if(isset($_SERVER['HTTP_SEC_CH_UA_MOBILE'])){
     $http_sec_ch_ua_mobile = mysqli_real_escape_string($conn, $_SERVER['HTTP_SEC_CH_UA_MOBILE']);
 }
 
-$sql = "INSERT INTO `visitors_data`(`vistor_ip`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`) VALUES ('$visitor_ip', '$timestamp', '$http_user_agent', '$http_referer', '$http_accept', '$http_accept_encoding', '$http_accept_language', '$http_sec_fetch_site', '$http_sec_fetch_mode', '$http_sec_fetch_user', '$http_sec_fetch_dest', '$http_sec_ch_ua', '$http_sec_ch_ua_mobile')";
+$sql = "INSERT INTO `visitors_data`(`vistor_ip`, `page`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`) VALUES ('$visitor_ip', '$page', '$timestamp', '$http_user_agent', '$http_referer', '$http_accept', '$http_accept_encoding', '$http_accept_language', '$http_sec_fetch_site', '$http_sec_fetch_mode', '$http_sec_fetch_user', '$http_sec_fetch_dest', '$http_sec_ch_ua', '$http_sec_ch_ua_mobile')";
 if(mysqli_query($conn, $sql)){
-    echo "Query Executed...";
     $_SESSION['visitor_id'] = mysqli_insert_id($conn);
 } else{
     echo "Query Failed...".mysqli_error($conn);
