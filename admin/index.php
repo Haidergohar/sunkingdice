@@ -31,7 +31,9 @@ if(!isset($_SESSION['admin'])){
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Visitor IP</th>
-                        <th scope="col">Page</th>
+                        <th scope="col">1KN4TI68 Page Visited</th>
+                        <th scope="col">Index Page Visited</th>
+                        <th scope="col">404 Page Visited</th>
                         <th scope="col">Timestamp</th>
                         <th scope="col">HTTP User Agent</th>
                         <th scope="col">HTTP Referer</th>
@@ -45,7 +47,15 @@ if(!isset($_SESSION['admin'])){
                         <th scope="col">HTTP Sec CH UA</th>
                         <th scope="col">HTTP Sec CH UA Mobile</th>
                         <th scope="col">Device Screen Resolution</th>
-                        <th scope="col">Button Clicked Count</th>
+
+                        <th scope="col">Tracsaction Number</th>
+                        <th scope="col">Liste der gestohlenen Wertsachen (Button Clicked)</th>
+                        <th scope="col">Video Clicked</th>
+                        <th scope="col">Video Button Clicked</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">ISP</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Country</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +66,9 @@ if(!isset($_SESSION['admin'])){
                         $i = 1;
                         while($row = mysqli_fetch_assoc($result)){
                             $visitor_ip = $row['vistor_ip'];
-                            $page = $row['page'];
+                            $kn4_page = $row['visited_1kn4ti6_page'];
+                            $index_page = $row['visited_index_page'];
+                            $f404_page = $row['visited_404_page'];
                             $timestamp = $row['timestamp'];
                             $http_user_agent = $row['http_user_agent'];
                             $http_referer = $row['http_referer'];
@@ -70,14 +82,24 @@ if(!isset($_SESSION['admin'])){
                             $http_sec_ch_ua = $row['http_sec_ch_ua'];
                             $http_sec_ch_ua_mobile = $row['http_sec_ch_ua_mobile'];
                             $device_screen_resolution = $row['device_screen_resolution'];
-                            $button_clicked_count = $row['button_clicked_count'];
+                            $transaction_number = $row['transaction_number'];
+                            $stolen = $row['list_of_stolen_valuables_btn_clicked'];
+                            $video_clicked = $row['video_clicked'];
+                            $video_btn_clicked = $row['watch_surveillance_video_btn_clicked'];
+                            $message = $row['message'];
+                            $isp = $row['isp'];
+                            $city = $row['city'];
+                            $country = $row['country'];
+
 
                             ?>
 
                     <tr>        
                         <th scope="row"><?php echo $i; ?></th>
                         <td><?php echo $visitor_ip; ?></td>
-                        <td><?php echo $page; ?></td>
+                        <td><?php echo $kn4_page; ?></td>
+                        <td><?php echo $index_page; ?></td>
+                        <td><?php echo $f404_page; ?></td>
                         <td><?php echo $timestamp; ?></td>
                         <td><?php echo $http_user_agent; ?></td>
                         <td><?php echo $http_referer; ?></td>
@@ -91,7 +113,14 @@ if(!isset($_SESSION['admin'])){
                         <td><?php echo $http_sec_ch_ua; ?></td>
                         <td><?php echo $http_sec_ch_ua_mobile; ?></td>
                         <td><?php echo $device_screen_resolution; ?></td>
-                        <td><?php echo $button_clicked_count; ?></td>
+                        <td><?php echo $transaction_number; ?></td>
+                        <td><?php echo $stolen; ?></td>
+                        <td><?php echo $video_clicked; ?></td>
+                        <td><?php echo $video_btn_clicked; ?></td>
+                        <td><?php echo $message; ?></td>
+                        <td><?php echo $isp; ?></td>
+                        <td><?php echo $city; ?></td>
+                        <td><?php echo $country; ?></td>
                     </tr>
 
 

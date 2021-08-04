@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2021 at 11:29 PM
+-- Generation Time: Aug 04, 2021 at 06:26 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -49,7 +49,9 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 CREATE TABLE `visitors_data` (
   `id` int(11) NOT NULL,
   `vistor_ip` varchar(256) NOT NULL,
-  `page` varchar(255) NOT NULL,
+  `visited_1kn4ti6_page` varchar(5) DEFAULT 'NO',
+  `visited_index_page` varchar(5) DEFAULT 'NO',
+  `visited_404_page` varchar(5) DEFAULT 'NO',
   `timestamp` varchar(256) NOT NULL,
   `http_user_agent` varchar(256) DEFAULT NULL,
   `http_referer` varchar(256) DEFAULT NULL,
@@ -63,24 +65,22 @@ CREATE TABLE `visitors_data` (
   `http_sec_ch_ua` varchar(256) DEFAULT NULL,
   `http_sec_ch_ua_mobile` varchar(256) DEFAULT NULL,
   `device_screen_resolution` varchar(256) DEFAULT NULL,
-  `button_clicked_count` int(11) DEFAULT 0
+  `transaction_number` varchar(255) DEFAULT NULL,
+  `list_of_stolen_valuables_btn_clicked` varchar(5) DEFAULT 'NO',
+  `video_clicked` varchar(5) DEFAULT 'NO',
+  `watch_surveillance_video_btn_clicked` varchar(5) DEFAULT 'NO',
+  `message` text DEFAULT NULL,
+  `isp` varchar(255) DEFAULT NULL,
+  `city` varchar(50) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `visitors_data`
 --
 
-INSERT INTO `visitors_data` (`id`, `vistor_ip`, `page`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`, `device_screen_resolution`, `button_clicked_count`) VALUES
-(1, '::1', '', '1627844015', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 0),
-(2, '::1', '', '1627844065', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 0),
-(3, '::1', '', '1627844070', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 0),
-(4, '::1', '', '1627844480', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 8),
-(5, '::1', '1kn4ti68', '1627938802', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 0),
-(6, '::1', '1kn4ti68', '1627938835', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 3),
-(7, '::1', 'index', '1627938882', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', NULL, 0),
-(8, '::1', 'index', '1627938904', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', NULL, 0),
-(9, '::1', 'index', '1627938918', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 0),
-(10, '::1', '404 page', '1627938950', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', NULL, 0);
+INSERT INTO `visitors_data` (`id`, `vistor_ip`, `visited_1kn4ti6_page`, `visited_index_page`, `visited_404_page`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`, `device_screen_resolution`, `transaction_number`, `list_of_stolen_valuables_btn_clicked`, `video_clicked`, `watch_surveillance_video_btn_clicked`, `message`, `isp`, `city`, `country`) VALUES
+(1, '103.161.154.117', 'YES', 'YES', 'YES', '1628092678', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', '', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'gzip, deflate, br', 'en-US,en;q=0.9', 'none', 'navigate', '?1', 'document', '\"Chromium\";v=\"92\", \" Not A;Brand\";v=\"99\", \"Google Chrome\";v=\"92\"', '?0', '1366 x 768', 'this is transacrion', 'YES', 'YES', 'YES', 'this is message', 'AS132165 Connect Communications', 'Karachi', 'PK');
 
 --
 -- Indexes for dumped tables
@@ -112,7 +112,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `visitors_data`
 --
 ALTER TABLE `visitors_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

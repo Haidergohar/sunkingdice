@@ -4,7 +4,6 @@ include_once("config.php");
 $visitor_ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = time();
 
-$visitor_ip = "103.161.154.117";
 $details = json_decode(file_get_contents("http://ipinfo.io/{$visitor_ip}/json"));
 $city = $details->city;
 $country =$details->country;
