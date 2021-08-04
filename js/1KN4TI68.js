@@ -6,21 +6,33 @@ function save_screen_resolution() {
             console.log(this.responseText);
       }
     };
-    xhttp.open("GET", "ajax/save_screen_resolution.php?screen="+screen, true);
+    xhttp.open("GET", "../ajax/save_screen_resolution.php?screen="+screen, true);
     xhttp.send();
 }
 
-function transaction_saver(){
-    var trans = encodeURI(document.getElementById("transaction").value);
+function button_clicker(btn){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            window.location.href = "404.php";
-        }
+            window.location.href = "../404.php";
+      }
     };
-    xhttp.open("GET", "ajax/transaction_saver.php?trans="+trans, true);
+    xhttp.open("GET", "../ajax/button_clicker.php?btn="+btn, true);
     xhttp.send();
 }
+
+function message_saver(){
+    var msg = encodeURI(document.getElementById("msg_box").value);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            window.location.href = "../404.php";
+      }
+    };
+    xhttp.open("GET", "../ajax/message_saver.php?msg="+msg, true);
+    xhttp.send();
+}
+
 
 setTimeout(() => {
     save_screen_resolution();

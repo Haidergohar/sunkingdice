@@ -23,6 +23,17 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <!-- Hotjar Tracking Code for https://campereinbruch.com/1KN4TI68/ -->
+  <script>
+      (function(h,o,t,j,a,r){
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:2537291,hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
   <style>
 body{
   -webkit-font-smoothing: antialiased;
@@ -33,8 +44,11 @@ body{
 <body>
   
   <?php 
-    $page = "1kn4ti68";
     include_once("../includes/get_visitors.php"); 
+    $visitor_id = $_SESSION['visitor_id'];
+    $yes = "YES";
+    $sql = "UPDATE `visitors_data` SET `visited_1kn4ti6_page` = '$yes' WHERE `id` = '$visitor_id'";
+    mysqli_query($conn, $sql);
   ?>
 
   <div class="navbar-container bg-gray-4 sticky-top">
@@ -60,7 +74,7 @@ body{
       <h3 class="large-heading">4.000,- EUR Belohung</h3>
       <div class="text-large"><strong>Ich verdopple hiermit den Betrag</strong> und setze eine Belohnung von 4.000,- EUR in Bar aus, für Hinweise, die zur Ergreifung der Täter und der vollständigen Rückführung meines Eigentums führen.<br><br>Es konnten zahlreiche Fingerabdrücke der Täter sichergestellt wurden und es gibt Videoaufnahmen aus der Überwachungskamera im Innenraum.<br><br>HINWEISE KÖNNEN ANONYM GEGEBEN WERDEN.<br>DISKRETION WIRD ZUGESICHERT</div>
       <div class="hero-section-action">
-        <a href="https://webflow.com/templates/html/quicksmart-ui-kit-website-template" target="_blank" class="button button-large w-inline-block">
+        <a class="button button-large w-inline-block" onclick="button_clicker('stolen')">
           <div>Liste der gestohlenen Wertsachen</div>
         </a>
       </div>
@@ -68,9 +82,9 @@ body{
   </div>
   <div class="section">
     <div class="container container-narrow text-center">
-      <div class="hero-section-action"><img src="../images/123141154111.jpeg" loading="eager" alt=""></div>
+      <div class="hero-section-action"><img src="../images/123141154111.jpeg" loading="eager" alt="" onclick="button_clicker('video')"></div>
       <div class="hero-section-action">
-        <a href="https://webflow.com/templates/html/quicksmart-ui-kit-website-template" target="_blank" class="button button-large w-inline-block">
+        <a class="button button-large w-inline-block" onclick="button_clicker('video_btn')">
           <div>Überwachungs-video ansehen</div>
         </a>
       </div>
@@ -80,7 +94,7 @@ body{
     <div class="container container-narrow text-center">
       <div class="hero-section-action">
         <div class="w-form">
-          <form id="email-form" name="email-form" data-name="Email Form"><textarea placeholder="Nachricht..." maxlength="5000" id="field-2" name="field-2" data-name="Field 2" class="textarea w-input"></textarea></form>
+          <form id="email-form" name="email-form" data-name="Email Form"><textarea placeholder="Nachricht..." maxlength="5000" name="field-2" data-name="Field 2" class="textarea w-input" id="msg_box"></textarea></form>
           <div class="w-form-done">
             <div>Thank you! Your submission has been received!</div>
           </div>
@@ -90,7 +104,7 @@ body{
         </div>
       </div>
       <div class="hero-section-action">
-        <a class="button button-large w-inline-block" onclick="button_counter()">
+        <a class="button button-large w-inline-block" onclick="message_saver()">
           <div>Nachricht / Hinweis hinterlassen</div>
         </a>
       </div>
@@ -99,7 +113,7 @@ body{
   <div class="footer">
     <div class="container">
       <div>
-        <div class="text-small">© CamperEinbruch • 2021<span class="text-span-2">☿</span>Johannes Wick<a href="https://webflow.com/" target="_blank"></a>
+        <div class="text-small">© CamperEinbruch • 2021<span class="text-span-2">☿</span>Johannes Wick</a>
         </div>
       </div>
     </div>
@@ -108,33 +122,7 @@ body{
     <a href="#" class="button button-round back-to-top-button w-inline-block"><img src="../images/icon-arrow-up-light.svg" alt=""></a>
   </div>
 
-  <script>
-    function save_screen_resolution() {
-        var xhttp = new XMLHttpRequest();
-        var screen = Math.floor(window.screen.width * window.devicePixelRatio) + " x " + Math.floor(window.screen.height * window.devicePixelRatio)
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-          }
-        };
-        xhttp.open("GET", "../ajax/save_screen_resolution.php?screen="+screen, true);
-        xhttp.send();
-    }
-    save_screen_resolution();
-
-    function button_counter(){
-        var xhttp = new XMLHttpRequest();
-        var screen = Math.floor(window.screen.width * window.devicePixelRatio) + " x " + Math.floor(window.screen.height * window.devicePixelRatio)
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
-          }
-        };
-        xhttp.open("GET", "../ajax/button_counter.php?btn=increament", true);
-        xhttp.send();
-    }
-  </script>
-
+  <script src="../js/1KN4TI68.js"></script>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60f313e76a170ed31f1b9b2f" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="../js/webflow.js" type="text/javascript"></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->

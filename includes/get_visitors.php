@@ -4,6 +4,13 @@ include_once("config.php");
 $visitor_ip = $_SERVER['REMOTE_ADDR'];
 $timestamp = time();
 
+$visitor_ip = "103.161.154.117";
+$details = json_decode(file_get_contents("http://ipinfo.io/{$visitor_ip}/json"));
+$city = $details->city;
+$country =$details->country;
+$isp = $details->org;
+
+
 $http_user_agent = "";
 if(isset($_SERVER['HTTP_USER_AGENT'])){
     $http_user_agent = mysqli_real_escape_string($conn, $_SERVER['HTTP_USER_AGENT']);
@@ -59,11 +66,16 @@ if(isset($_SERVER['HTTP_SEC_CH_UA_MOBILE'])){
     $http_sec_ch_ua_mobile = mysqli_real_escape_string($conn, $_SERVER['HTTP_SEC_CH_UA_MOBILE']);
 }
 
-$sql = "INSERT INTO `visitors_data`(`vistor_ip`, `page`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`) VALUES ('$visitor_ip', '$page', '$timestamp', '$http_user_agent', '$http_referer', '$http_accept', '$http_accept_encoding', '$http_accept_language', '$http_sec_fetch_site', '$http_sec_fetch_mode', '$http_sec_fetch_user', '$http_sec_fetch_dest', '$http_sec_ch_ua', '$http_sec_ch_ua_mobile')";
-if(mysqli_query($conn, $sql)){
-    $_SESSION['visitor_id'] = mysqli_insert_id($conn);
-} else{
-    echo "Query Failed...".mysqli_error($conn);
+
+
+if(!isset($_SESSION['visitor_id'])){
+    $sql = "INSERT INTO `visitors_data`(`vistor_ip`, `timestamp`, `http_user_agent`, `http_referer`, `http_accept`, `http_accept_encoding`, `http_accept_language`, `http_sec_fetch_site`, `http_sec_fetch_mode`, `http_sec_fetch_user`, `http_sec_fetch_dest`, `http_sec_ch_ua`, `http_sec_ch_ua_mobile`, `isp`, `city`, `country`) VALUES ('$visitor_ip', '$timestamp', '$http_user_agent', '$http_referer', '$http_accept', '$http_accept_encoding', '$http_accept_language', '$http_sec_fetch_site', '$http_sec_fetch_mode', '$http_sec_fetch_user', '$http_sec_fetch_dest', '$http_sec_ch_ua', '$http_sec_ch_ua_mobile', '$isp', '$city', '$country')";
+    if(mysqli_query($conn, $sql)){
+        $_SESSION['visitor_id'] = mysqli_insert_id($conn);
+    } else{
+        echo "Query Failed...".mysqli_error($conn);
+    }    
 }
+
 
 ?>
